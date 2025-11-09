@@ -1,0 +1,9 @@
+name: nextjs-haloy-example
+server: hermes.haloy.dev
+domains:
+  - domain: nextjs.haloy.dev
+port: 3000
+env:
+  - name: NODE_ENV
+    value: production
+

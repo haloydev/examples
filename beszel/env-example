@@ -1,0 +1,4 @@
+# Rename this file to .env
+BESZEL_KEY=""
+BESZEL_AGENT_HERMES_TOKEN=""
+BESZEL_AGENT_HECATE_TOKEN=""
