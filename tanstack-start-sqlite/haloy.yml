@@ -1,0 +1,12 @@
+name: tanstack-start-sqlite-haloy-example
+server: example.haloy.dev
+domains:
+  - domain: tanstack-start-sqlite.haloy.dev
+port: 3000
+env:
+  - name: NODE_ENV
+    value: production
+  - name: DATABASE_URL
+    value: "file:/app/db-data/production.db"
+volumes:
+  - "db-data:/app/db-data"
