@@ -1,0 +1,22 @@
+name: django-polls-haloy-example
+server: hecate.haloy.dev
+domains:
+  - domain: django.haloy.dev
+port: 8000
+env:
+  - name: DJANGO_DEBUG
+    value: "False"
+  - name: DJANGO_SECRET_KEY
+    value: "your-production-secret-key-change-this"
+  - name: DJANGO_ALLOWED_HOSTS
+    value: "django.haloy.dev,localhost,127.0.0.1"
+  - name: DATABASE_PATH
+    value: "/app/data/db.sqlite3"
+  - name: DJANGO_SUPERUSER_USERNAME
+    value: "admin"
+  - name: DJANGO_SUPERUSER_EMAIL
+    value: "admin@djangopolls.dev"
+  - name: DJANGO_SUPERUSER_PASSWORD
+    value: "PollsAdmin2024!"
+volumes:
+  - "db-data:/app/data"
