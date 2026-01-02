@@ -1,0 +1,12 @@
+name: beszel
+preset: servicez
+server: hermes.haloy.dev
+image:
+  repository: "henrygd/beszel:latest"
+domains:
+  - domain: beszel.haloy.dev
+port: 8090
+volumes:
+  - beszel_data:/beszel_data
+  - beszel_socket:/beszel_socket
+
