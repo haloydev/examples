@@ -1,0 +1,27 @@
+# Global server and environment variables shared across targets
+server: hecate.haloy.dev
+env:
+  - name: POSTGRES_USER
+    value: postgres
+  - name: POSTGRES_PASSWORD
+    value: "postgres"
+  - name: POSTGRES_DB
+    value: todo_app
+
+targets:
+  # Database Service
+  postgres:
+    preset: database
+    image:
+      repository: postgres:18
+    port: 5432
+    volumes:
+      - postgres-data:/var/lib/postgresql
+  # Application Service
+  tanstack-start-postgres:
+    domains:
+      - domain: tanstack-start-postgres.haloy.dev
+    port: 3000
+    env:
+      - name: NODE_ENV
+        value: production
