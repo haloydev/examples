@@ -1,5 +1,5 @@
 name: beszel
-preset: servicez
+preset: service
 server: hermes.haloy.dev
 image:
   repository: "henrygd/beszel:latest"
