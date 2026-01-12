@@ -6,7 +6,7 @@ env:
   - name: POSTGRES_PASSWORD
     value: "postgres"
   - name: POSTGRES_DB
-    value: todo_app
+    value: "todo_app"
 
 targets:
   # Database Service
@@ -18,10 +18,7 @@ targets:
     volumes:
       - postgres-data:/var/lib/postgresql
   # Application Service
-  tanstack-start-postgres:
+  nextjs-postgres:
     domains:
-      - domain: tanstack-start-postgres.haloy.dev
+      - domain: nextjs.haloy.dev
     port: 3000
-    env:
-      - name: NODE_ENV
-        value: production
