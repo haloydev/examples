@@ -1,5 +1,5 @@
 # Global server and environment variables shared across targets
-server: hermes.haloy.dev
+server: example.haloy.dev
 env:
   - name: POSTGRES_USER
     value: postgres

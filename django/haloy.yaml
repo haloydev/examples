@@ -1,5 +1,5 @@
 name: django-polls-haloy-example
-server: hecate.haloy.dev
+server: example.haloy.dev
 domains:
   - domain: django.haloy.dev
 port: 8000

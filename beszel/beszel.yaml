@@ -1,6 +1,6 @@
 name: beszel
 preset: service
-server: hermes.haloy.dev
+server: example.haloy.dev
 image:
   repository: "henrygd/beszel:latest"
 domains:

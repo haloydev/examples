@@ -1,5 +1,5 @@
 name: static-site-busybox
-server: hermes.haloy.dev
+server: example.haloy.dev
 domains:
   - domain: static-site-busybox.haloy.dev
 

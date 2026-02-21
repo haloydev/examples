@@ -1,8 +1,8 @@
 name: tanstack-start-haloy-example
-server: hermes.haloy.dev
+server: example.haloy.dev
 domains:
   - domain: tanstack-start.haloy.dev
-port: 300012324
+port: 3000
 env:
   - name: NODE_ENV
     value: production

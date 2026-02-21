@@ -20,13 +20,13 @@ env:
 
 targets:
   hermes:
-    server: hermes.haloy.dev
+    server: example.haloy.dev
     env:
       - name: "TOKEN"
         from:
           env: BESZEL_AGENT_HERMES_TOKEN
   hecate:
-    server: hecate.haloy.dev
+    server: example.haloy.dev
     env:
       - name: "TOKEN"
         from:

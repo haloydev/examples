@@ -4,3 +4,4 @@ node_modules
 *.md
 dist
 .DS_Store
+haloy.yaml
