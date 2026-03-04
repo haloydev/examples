@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX + Go Todo App</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; background: #f5f5f5; color: #333; }
+        h1 { margin-bottom: 24px; }
+        form { display: flex; gap: 8px; margin-bottom: 24px; }
+        input[type="text"] { flex: 1; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; }
+        button { padding: 10px 18px; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; }
+        button[type="submit"] { background: #2563eb; color: white; }
+        button[type="submit"]:hover { background: #1d4ed8; }
+        .todo-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .todo-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .todo-item.done .todo-text { text-decoration: line-through; color: #999; }
+        .todo-text { flex: 1; font-size: 16px; }
+        .btn-toggle { background: #e5e7eb; font-size: 18px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .btn-delete { background: #fee2e2; color: #dc2626; font-size: 14px; }
+        .btn-delete:hover { background: #fecaca; }
+    </style>
+</head>
+<body>
+    <h1>Todo App</h1>
+    <form hx-post="/todos" hx-target="#todo-list" hx-swap="beforeend" hx-on::after-request="if(event.detail.successful) this.reset()">
+        <input type="text" name="text" placeholder="What needs to be done?" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul id="todo-list" class="todo-list">
+        {{range .}}
+        {{template "todo-item" .}}
+        {{end}}
+    </ul>
+</body>
+</html>
+
+{{define "todo-item"}}
+<li id="todo-{{.ID}}" class="todo-item{{if .Done}} done{{end}}">
+    <button class="btn-toggle" hx-put="/todos/{{.ID}}/toggle" hx-target="#todo-{{.ID}}" hx-swap="outerHTML">
+        {{if .Done}}&#10003;{{else}}&nbsp;{{end}}
+    </button>
+    <span class="todo-text">{{.Text}}</span>
+    <button class="btn-delete" hx-delete="/todos/{{.ID}}" hx-target="#todo-{{.ID}}" hx-swap="outerHTML">Delete</button>
+</li>
+{{end}}

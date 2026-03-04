@@ -1,0 +1,5 @@
+name: htmx
+server: ares.haloy.dev
+domains:
+  - domain: htmx.haloy.dev
+port: 8080
